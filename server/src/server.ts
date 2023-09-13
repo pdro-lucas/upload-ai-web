@@ -1,17 +1,12 @@
 import { fastify } from 'fastify';
+import { getAllPromptsRoute } from './routes/get-all-prompts';
 
 const app = fastify();
 
-app.get('/', async (request, reply) => {
-  return { hello: 'world' };
-});
+app.register(getAllPromptsRoute);
 
-app.listen(
-  {
+app
+  .listen({
     port: 3333,
-    host: '0.0.0.0',
-  },
-  () => {
-    console.log('Server is running');
-  },
-);
+  })
+  .then((address) => console.log(`server is listening on ${address}`));
