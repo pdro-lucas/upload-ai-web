@@ -1,7 +1,5 @@
+import { Github, Wand2 } from 'lucide-react';
 import { Button } from './components/ui/button';
-import { Github, FileVideo, Upload, Wand2 } from 'lucide-react';
-import { Separator } from './components/ui/separator';
-import { Textarea } from './components/ui/textarea';
 import { Label } from './components/ui/label';
 import {
   Select,
@@ -10,7 +8,10 @@ import {
   SelectTrigger,
   SelectValue,
 } from './components/ui/select';
+import { Separator } from './components/ui/separator';
 import { Slider } from './components/ui/slider';
+import { Textarea } from './components/ui/textarea';
+import { VideoInputForm } from './components/video-input-form';
 
 export function App() {
   return (
@@ -52,39 +53,7 @@ export function App() {
           </p>
         </div>
         <aside className="space-y-6 w-80">
-          <form className="space-y-6">
-            <label
-              htmlFor="video"
-              className="flex flex-col items-center justify-center gap-2 text-sm border border-dashed rounded-md cursor-pointer aspect-video text-muted-foreground hover:bg-primary/30"
-            >
-              <FileVideo className="w-4 h-4" />
-              Selecione um video
-            </label>
-
-            <input
-              type="file"
-              id="video"
-              accept="video/mp4"
-              className="sr-only"
-            />
-
-            <Separator />
-
-            <div className="space-y-2">
-              <Label className="" htmlFor="transcription_prompt">
-                Prompt de transcrição
-              </Label>
-              <Textarea
-                id="transcription_prompt"
-                className="h-20 leading-relaxed resize-none"
-                placeholder='Inclua palavras chaves mencionadas no video separadas por ","'
-              />
-            </div>
-
-            <Button type="submit" className="w-full">
-              Carregar video <Upload className="w-4 h-4 ml-2" />
-            </Button>
-          </form>
+          <VideoInputForm />
 
           <Separator />
 
